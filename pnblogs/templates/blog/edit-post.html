@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+{% if user.is_authenticated %}
+<section class="container">
+    <div class="row">
+        <div class="col-12 mt-5 pt-3">
+            <h3>Edit Blog.....</h3>
+            <hr>
+            <div class="form-group mt-5">
+                <form method="POST">
+                    {% csrf_token %}
+                    {{form.as_p}}
+                    <button class="btn px-5 btn-primary">Post</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% else %}
+    <div class="container my-5 pt-5 text-center">
+        <h2 class="text-danger">You are not allowed here <b> 404 Error </b></h2>
+    </div>
+{% endif %}
+
+{% endblock %}

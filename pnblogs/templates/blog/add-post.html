@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<section class="container">
+    <div class="row">
+        <div class="col-12  mt-5 pt-4 ">
+            <h3>Add Blog.....</h3>
+            <hr>
+            <div class="form-group mt-5">
+                <form enctype="multipart/form-data" method="POST">
+                    {% csrf_token %}
+                    {{form.media}}
+                    {{form.as_p}}
+                    <button class="btn px-5 btn-primary">Post</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}
